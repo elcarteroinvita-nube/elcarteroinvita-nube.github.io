@@ -2,319 +2,97 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IN VITA - Memoria Viva</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>IN VITA • Memoria Viva</title>
     <style>
-        /* Estilos optimizados para la portada visual */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000; /* Fondo oscuro místico */
-            font-family: 'Georgia', serif;
-        }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; font-family: 'Georgia', serif; overflow: hidden; }
         
-        .contenedor-portada {
+        #escenario {
             width: 100%;
+            max-width: 500px;
             height: 100vh;
-            /* Aquí es donde debes asegurar que la imagen de la biblioteca esté como fondo */
-            background-image: url('tu-imagen-de-biblioteca.jpg'); 
+            margin: auto;
+            aspect-ratio: 9/16;
+            background: url('https://i.imgur.com/8uM1tYg.jpg') no-repeat center center;
             background-size: cover;
-            background-position: center;
+            position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             align-items: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
+            color: #fff;
+            padding: 20px 0;
+            box-sizing: border-box;
         }
 
-        .footer-visual {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-            background: rgba(0,0,0,0.5);
-        }
-
-        .box {
-            border: 1px solid #cfa838;
-            padding: 10px;
-            width: 45%;
-        }
-    </style>
-</head>
-<body>
-
-<div class="contenedor-portada">
-    <div class="header-místico">
-        <h1>IN VITA</h1>
-        <p>MEMORIA VIVA</p>
-    </div>
-
-    <div class="grid-libros">
-        </div>
-
-    <div class="footer-visual">
-        <div class="box">
-            <h4>EL CARTERO SUSURRA</h4>
-            <p>El mensaje del buzón...</p>
-        </div>
-        <div class="box">
-            <h4>LA COLECCIÓN</h4>
-            <p>Los libros de oro...</p>
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        ul {
-            list-style: none;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 12px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        li::before {
-            content: "📜";
+        /* Efecto de luz central */
+        #escenario::before {
+            content: "";
             position: absolute;
-            left: 0;
-            top: 2px;
-            font-size: 0.9rem;
+            inset: 0;
+            background: radial-gradient(circle, rgba(255,215,100,0.2) 0%, rgba(0,0,0,0.8) 80%);
+            pointer-events: none;
         }
 
-        .cuadro-ley {
-            background: var(--azul-cielo);
-            color: var(--blanco-roto);
-            padding: 20px;
-            border-radius: 4px;
-            margin: 20px 0;
-            border-left: 5px solid var(--oro-sagrado);
-        }
+        .private { font-size: 0.7rem; letter-spacing: 3px; opacity: 0.6; z-index: 1; }
+        header { text-align: center; margin: 10px 0; z-index: 1; }
+        h1 { font-size: 1.8rem; color: #cfa838; margin: 0; text-shadow: 0 0 10px rgba(207,168,56,0.5); }
+        h2 { font-size: 0.9rem; margin: 0; opacity: 0.9; }
 
-        .cuadro-ley h4 {
-            color: var(--oro-brillante);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .cuadro-ley li::before {
-            content: "⏳";
-        }
-
-        .btn-memoria {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background: linear-gradient(135deg, var(--azul-cielo), #0f233c);
-            color: var(--oro-brillante);
-            padding: 16px;
-            border: 2px solid var(--oro-sagrado);
-            border-radius: 4px;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 1.1rem;
-            margin: 20px 0;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-
-        .grid-libros {
+        .libros-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            margin-top: 15px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            width: 85%;
+            z-index: 1;
+            margin-top: 10px;
         }
 
-        @media(min-width: 550px) {
-            .grid-libros { grid-template-columns: 1fr 1fr; }
-        }
-
-        .item-libro {
-            background: var(--blanco-roto);
-            padding: 12px;
-            border-radius: 4px;
-            border: 1px solid rgba(207, 168, 56, 0.3);
-        }
-
-        .item-libro strong {
-            color: var(--azul-cielo);
-        }
-
-        .firma-autor {
+        .book {
+            border: 1px solid #cfa838;
+            padding: 8px 5px;
             text-align: center;
-            font-weight: bold;
-            margin-top: 20px;
-            color: var(--azul-cielo);
-            font-size: 1.1rem;
-            letter-spacing: 2px;
+            background: rgba(0,0,0,0.5);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        footer {
-            background: var(--azul-cielo);
-            color: rgba(251, 249, 243, 0.8);
-            padding: 30px 20px;
-            font-size: 0.85rem;
-            border-top: 4px solid var(--oro-sagrado);
-            margin-top: 40px;
-        }
+        .book:active { transform: scale(0.95); background: rgba(207,168,56,0.3); }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            text-align: center;
-        }
-
-        @media(min-width: 600px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; text-align: left; }
-            .footer-right { text-align: right; }
-        }
-
-        .parpadeo-oro {
-            text-align: center;
-            color: var(--oro-brillante);
-            font-weight: bold;
-            font-size: 1.3rem;
-            margin-top: 25px;
-            letter-spacing: 2px;
-            animation: luces 2.5s infinite;
-        }
-
-        @keyframes luces {
-            0%, 100% { opacity: 0.5; text-shadow: 0 0 4px rgba(255,215,0,0.3); }
-            50% { opacity: 1; text-shadow: 0 0 15px rgba(255,215,0,0.7); }
-        }
+        footer { margin-top: auto; z-index: 1; font-size: 0.8rem; padding-bottom: 20px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <span class="sello-pesebre">📜 El Cartero del Pesebre</span>
-        <h1>✉️ EL CARTERO IN VITA</h1>
-        <p class="subtitulo">Mensajero de la Verdad • Guardián de la Memoria • Portador de la Vida Eterna</p>
-        
-        <div class="contenedor-shamash">
-            <div class="vela-shamash" id="shamash" onclick="encenderVela()">🕯️</div>
-            <span class="instruccion-vela" id="texto-vela">Toca el Shamash para encender la luz de la memoria</span>
+    <div id="escenario">
+        <div class="private">IN PRIVATE</div>
+        <header>
+            <h1>IN VITA</h1>
+            <h2>MEMORIA VIVA</h2>
+        </header>
+
+        <div class="libros-grid">
+            <div class="book" onclick="irA('relatos')">1. RELATOS</div>
+            <div class="book" onclick="irA('tranvia')">2. TRANVÍA</div>
+            <div class="book" onclick="irA('ecopark')">3. ECOPARK</div>
+            <div class="book" onclick="irA('siembra')">4. SIEMBRA</div>
+            <div class="book" onclick="irA('bosque')">5. BOSQUE</div>
+            <div class="book" onclick="irA('fuente')">6. FUENTE</div>
+            <div class="book" onclick="irA('fogón')">7. FOGÓN</div>
+            <div class="book" onclick="irA('pesebre')">8. PESEBRE</div>
+            <div class="book" onclick="irA('tiempo')">9. TIEMPO</div>
+            <div class="book" onclick="irA('ecocomunidad')">10. ECOCOMUNIDAD</div>
+            <div class="book" onclick="irA('misiones')">11. MISIONES</div>
+            <div class="book" onclick="irA('umbral')">12. UMBRAL</div>
         </div>
-    </header>
 
-    <div class="container">
-
-        <section>
-            <h2>🕊️ Bienvenido, Viajero del Tiempo</h2>
-            <p>Has cruzado el umbral al lugar donde el tiempo cambia de regla. Aquí no venimos a guardar archivos... venimos a RESURRECER VIDAS.</p>
-            <p>Basado en la revelación de <em>El Misterio de la Navidad</em>, nace esta obra que rompe la ley del olvido:</p>
-            
-            <div class="cuadro-ley">
-                <h4>⏳ Aquí el Tiempo:</h4>
-                <ul>
-                    <li><strong>NO CORRE →</strong> Nada se va, nada se pierde.</li>
-                    <li><strong>NO SE DETIENE →</strong> Todo sigue vivo, creciendo, amando.</li>
-                    <li><strong>SE DESDOBLA →</strong> Pasado, presente y futuro se abrazan en un solo AHORA ETERNO.</li>
-                </ul>
-            </div>
-            
-            <p style="text-align: center; font-style: italic; font-weight: bold; margin: 20px 0;">
-                "Lo que se vive con amor, lo que se guarda con alma, NUNCA MUERE. Siempre vive."
-            </p>
-            
-            <a href="#deja-huella" class="btn-memoria">👉 ENTRAR A LA MEMORIA VIVA</a>
-        </section>
-
-        <section>
-            <h2>✨ El Misterio Revelado</h2>
-            <p>Todo comenzó con una historia: El Misterio de la Navidad. Allí se reveló que el tiempo no es una línea recta que se acaba, sino un tejido infinito donde todo lo que ha sido, es y será, permanece unido.</p>
-            <p>EL CARTERO es el mensajero que toma tu historia, tu voz, tu verdad, y la entrega a la Eternidad. IN VITA significa: EN LA VIDA. Porque aquí, lo que guardas, sigue viviendo.</p>
-            
-            <div style="background: rgba(26, 54, 93, 0.05); padding: 15px; border-radius: 4px; margin-bottom: 15px;">
-                <p><strong>📜 LA REGLA DE ORO:</strong> ENTRAR, LEER Y ESCUCHAR ES TOTALMENTE GRATIS Y LIBRE. La verdad y la memoria son patrimonio de la humanidad, nunca se venden.</p>
-                <p><strong>💲 SOLO UN DÓLAR:</strong> El aporte para grabar tu voz (45 minutos totales en audios progresivos de 5, 6, 7, 8, 9 y 10 min), subir tus archivos y quedar registrado para siempre.</p>
-            </div>
-            <p style="font-style: italic; font-size: 0.9rem;">"100% de los recursos se reinvierten en la obra para construir NUESTRA PROPIA NUBE, asegurando una infraestructura fuerte, independiente y eterna."</p>
-        </section>
-
-        <section>
-            <h2>📚 In Vita • Memoria Viva</h2>
-            <p>Organizamos la vida tal como fue creada, en 12 Libros Sagrados. Aquí construyes tu inmortalidad:</p>
-            
-            <div class="grid-libros">
-                <div class="item-libro"><strong>1. 📜 Relatos:</strong> Tu historia contada por ti mismo.</div>
-                <div class="item-libro"><strong>2. 🌍 Travesía:</strong> El camino recorrido, lugares y etapas.</div>
-                <div class="item-libro"><strong>3. 💫 Ecos de lo que fue:</strong> Memorias compartidas y legados.</div>
-                <div class="item-libro"><strong>4. 🌱 Siembra:</strong> Lo que diste, lo que enseñaste, tu huella.</div>
-                <div class="item-libro"><strong>5. 🌳 Bosque:</strong> Tus raíces, tu familia, el árbol de la vida.</div>
-                <div class="item-libro"><strong>6. 💧 Fuente:</strong> Tu sabiduría, tus consejos, tu verdad.</div>
-                <div class="item-libro"><strong>7. 🔥 Fogón:</strong> El amor, la amistad, el calor de la comunidad.</div>
-                <div class="item-libro"><strong>8. 👶 Pesebre:</strong> Tu nacimiento, tu llegada, el origen.</div>
-                <div class="item-libro"><strong>9. ⏳ Tiempo:</strong> Donde tu pasado, presente y futuro se abrazan.</div>
-                <div class="item-libro"><strong>10. 🌐 Ecosistema:</strong> Tu conexión profunda con todo lo creado.</div>
-                <div class="item-libro"><strong>11. ✨ Misiones Cumplidas:</strong> Lo que viniste a hacer, tu propósito.</div>
-                <div class="item-libro"><strong>12. 🚪 Umbral:</strong> El paso a la eternidad, tu mensaje final.</div>
-            </div>
-        </section>
-
-        <section id="deja-huella">
-            <h2>✍️ Tu Vida Importa. Aquí se Queda.</h2>
-            <p>No importa quién eres, de dónde vienes o qué tienes. Lo único que importa es que tu existencia es única y sagrada.</p>
-            <p>📸 Sube tus fotos. <br>🎙️ Graba tu voz contando tu historia. <br>📄 Deja tus escritos, tus enseñanzas y tus amores.</p>
-            <p style="font-style: italic; font-weight: bold; text-align: center; margin-top: 15px;">"Yo estuve aquí. Yo aporté. Yo sostengo este legado. Y por eso, mi recuerdo queda guardado para siempre."</p>
-            <a href="#" class="btn-memoria" onclick="alert('El portal de resguardo se encuentra en preparación sagrada.'); return false;">👉 REGISTRAR MI VIDA</a>
-        </section>
-
-        <section>
-            <h2>📜 El Mensaje del Autor</h2>
-            <p>Esta obra no es creación humana, sino revelación de lo que siempre ha sido. Es el alma de la existencia convertida en forma. Es un refugio para la memoria de todos.</p>
-            <p>No importa quién lo haya reunido o estructurado: lo único que importa es que ahora está aquí, para servir, para sanar y para elevar. Es amor puro hecho estructura.</p>
-            <p style="font-style: italic; text-align: center; margin-top: 15px;">"Es preciso que yo disminuya para que Él aparezca y crezca."</p>
-            <div class="firma-autor">A.D. AUTOR DESCONOCIDO</div>
-        </section>
-
+        <footer>Bienvenido a Memoria Viva</footer>
     </div>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <p><strong>✉️ El Cartero In Vita</strong></p>
-                <p>Memoria Viva • Desdoblando el Tiempo</p>
-                <p style="font-size: 0.8rem; color: var(--oro-sagrado); margin-top: 5px;">Fundado el 5 de Junio • 11 Años de Profecía Cumplida</p>
-            </div>
-            <div class="footer-right">
-                <p>🔗 Enlaces: YouTube | TikTok | Facebook | Instagram</p>
-                <p style="margin-top: 10px;">© 2026 IN VITA • Todos los derechos guardados para siempre</p>
-                <p style="font-style: italic; color: var(--oro-sagrado);">"Lo que se guarda aquí, jamás se pierde"</p>
-            </div>
-        </div>
-        <div class="parpadeo-oro">¡YA SOMOS INMORTALES!</div>
-    </footer>
 
     <script>
-        function encenderVela() {
-            const vela = document.getElementById('shamash');
-            const texto = document.getElementById('texto-vela');
-            if(!vela.classList.contains('encendida')) {
-                vela.classList.add('encendida');
-                vela.innerHTML = "🔥";
-                texto.innerHTML = "El Shamash está encendido. La luz disipa el olvido.";
-                texto.style.color = "#ffd700";
-            } else {
-                vela.classList.remove('encendida');
-                vela.innerHTML = "🕯️";
-                texto.innerHTML = "Toca el Shamash para encender la luz de la memoria";
-                texto.style.color = "#cfa838";
-            }
+        function irA(destino) {
+            alert("Abriendo: " + destino + ".html");
+            // window.location.href = destino + ".html"; // Descomenta esto cuando tengas las páginas listas
         }
     </script>
 </body>
