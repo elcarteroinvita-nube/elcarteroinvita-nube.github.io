@@ -3,112 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EL CARTERO IN VITA • Memoria Viva</title>
+    <title>IN VITA - Memoria Viva</title>
     <style>
-        :root {
-            --bg-papiro: #f5eed7;
-            --tierra-oscuro: #4a3319;
-            --oro-sagrado: #cfa838;
-            --oro-brillante: #ffd700;
-            --azul-cielo: #1a365d;
-            --blanco-roto: #fbf9f3;
-        }
-
-        * {
-            box-sizing: border-box;
+        /* Estilos optimizados para la portada visual */
+        body, html {
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            background-color: var(--bg-papiro);
-            color: var(--tierra-oscuro);
+            width: 100%;
+            height: 100%;
+            background-color: #000; /* Fondo oscuro místico */
             font-family: 'Georgia', serif;
-            line-height: 1.8;
-            padding-bottom: 40px;
         }
-
-        header {
-            background-color: var(--azul-cielo);
-            color: var(--blanco-roto);
-            padding: 40px 20px;
+        
+        .contenedor-portada {
+            width: 100%;
+            height: 100vh;
+            /* Aquí es donde debes asegurar que la imagen de la biblioteca esté como fondo */
+            background-image: url('tu-imagen-de-biblioteca.jpg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
             text-align: center;
-            border-bottom: 5px solid var(--oro-sagrado);
-            position: relative;
-        }
-
-        .sello-pesebre {
-            font-size: 0.9rem;
-            color: var(--oro-sagrado);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        h1 {
-            font-size: 2.4rem;
-            letter-spacing: 3px;
-            color: var(--oro-brillante);
-            margin-bottom: 10px;
-        }
-
-        .subtitulo {
-            font-size: 1.1rem;
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        .contenedor-shamash {
-            margin: 20px auto 0 auto;
-            text-align: center;
-        }
-
-        .vela-shamash {
-            font-size: 3.5rem;
-            cursor: pointer;
-            display: inline-block;
-            transition: transform 0.3s;
-            user-select: none;
-        }
-
-        .vela-shamash.encendida {
-            transform: scale(1.15);
-            filter: drop-shadow(0 0 15px #ffaa00);
-        }
-
-        .instruccion-vela {
-            font-size: 0.85rem;
-            color: var(--oro-sagrado);
-            display: block;
-            margin-top: 5px;
-        }
-
-        .container {
-            max-width: 750px;
-            margin: 0 auto;
             padding: 20px;
         }
 
-        section {
-            background: rgba(252, 249, 242, 0.65);
-            border: 1px solid rgba(74, 51, 25, 0.15);
-            border-radius: 4px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        .footer-visual {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: rgba(0,0,0,0.5);
         }
 
-        h2 {
-            color: var(--azul-cielo);
-            border-bottom: 2px solid var(--oro-sagrado);
-            padding-bottom: 6px;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+        .box {
+            border: 1px solid #cfa838;
+            padding: 10px;
+            width: 45%;
         }
+    </style>
+</head>
+<body>
 
-        p {
+<div class="contenedor-portada">
+    <div class="header-místico">
+        <h1>IN VITA</h1>
+        <p>MEMORIA VIVA</p>
+    </div>
+
+    <div class="grid-libros">
+        </div>
+
+    <div class="footer-visual">
+        <div class="box">
+            <h4>EL CARTERO SUSURRA</h4>
+            <p>El mensaje del buzón...</p>
+        </div>
+        <div class="box">
+            <h4>LA COLECCIÓN</h4>
+            <p>Los libros de oro...</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
             margin-bottom: 15px;
             text-align: justify;
         }
