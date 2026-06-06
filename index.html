@@ -3,21 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EL CARTERO IN VITA • Memoria Viva</title>
+    <title>EL CARTERO IN VITA - Memoria Viva</title>
     <style>
         :root {
             --bg-papiro: #f5eed7;
             --tierra-oscuro: #4a3319;
-            --oro-sagrado: #cfa838;
+            --oro-sagrado: #cfa038;
             --oro-brillante: #ffd700;
             --azul-cielo: #1a365d;
             --blanco-roto: #fbf9f3;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
@@ -25,7 +19,8 @@
             color: var(--tierra-oscuro);
             font-family: 'Georgia', serif;
             line-height: 1.8;
-            padding-bottom: 40px;
+            margin: 0;
+            padding: 0;
         }
 
         header {
@@ -34,81 +29,85 @@
             padding: 40px 20px;
             text-align: center;
             border-bottom: 5px solid var(--oro-sagrado);
-            position: relative;
         }
 
-        .sello-pesebre {
-            font-size: 0.9rem;
-            color: var(--oro-sagrado);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
+        h1 { font-size: 2.4rem; color: var(--oro-brillante); margin-bottom: 10px; }
+        .subtitle { font-size: 1.1rem; font-style: italic; opacity: 0.9; }
+
+        .container { max-width: 750px; margin: 0 auto; padding: 20px; }
+
+        .grid-libros {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 30px;
         }
 
-        h1 {
-            font-size: 2.4rem;
-            letter-spacing: 3px;
-            color: var(--oro-brillante);
-            margin-bottom: 10px;
-        }
-
-        .subtitulo {
-            font-size: 1.1rem;
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        .contenedor-shamash {
-            margin: 20px auto 0 auto;
-            text-align: center;
-        }
-
-        .vela-shamash {
-            font-size: 3.5rem;
-            cursor: pointer;
-            display: inline-block;
-            transition: transform 0.3s;
-            user-select: none;
-        }
-
-        .vela-shamash.encendida {
-            transform: scale(1.15);
-            filter: drop-shadow(0 0 15px #ffaa00);
-        }
-
-        .instruccion-vela {
-            font-size: 0.85rem;
-            color: var(--oro-sagrado);
-            display: block;
-            margin-top: 5px;
-        }
-
-        .container {
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        section {
-            background: rgba(252, 249, 242, 0.65);
-            border: 1px solid rgba(74, 51, 25, 0.15);
+        .item-libro {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 15px;
             border-radius: 4px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border: 1px solid var(--oro-sagrado);
         }
 
-        h2 {
-            color: var(--azul-cielo);
-            border-bottom: 2px solid var(--oro-sagrado);
-            padding-bottom: 6px;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+        .btn-memoria {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--azul-cielo);
+            color: var(--oro-brillante);
+            padding: 15px;
+            margin-top: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid var(--oro-sagrado);
         }
 
-        p {
+        footer {
+            background: var(--azul-cielo);
+            color: rgba(255, 249, 243, 0.8);
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>EL CARTERO IN VITA</h1>
+    <p class="subtitle">Memoria Viva - Desdoblando el Tiempo</p>
+</header>
+
+<div class="container">
+    <h2>Bienvenido, Viajero del Tiempo</h2>
+    <p>Has cruzado el umbral al lugar donde el tiempo cambia de regla. Aquí no venimos a guardar archivos, venimos a encender la memoria.</p>
+
+    <div class="grid-libros">
+        <div class="item-libro"><strong>1. Relatos:</strong> Origen de la memoria.</div>
+        <div class="item-libro"><strong>2. Tranvía:</strong> Movimiento del cartero.</div>
+        <div class="item-libro"><strong>3. Ecopark:</strong> Territorio que abraza.</div>
+        <div class="item-libro"><strong>4. Siembra:</strong> Todo florece.</div>
+        <div class="item-libro"><strong>5. Bosque:</strong> Raíces que recuerdan.</div>
+        <div class="item-libro"><strong>6. Fuentes:</strong> Lo que fluye permanente.</div>
+        <div class="item-libro"><strong>7. Fogón:</strong> Historias que iluminan.</div>
+        <div class="item-libro"><strong>8. Pesebre:</strong> Mensajes del sentido.</div>
+        <div class="item-libro"><strong>9. Tiempo:</strong> La memoria transforma.</div>
+        <div class="item-libro"><strong>10. Ecomunidad:</strong> Vivir juntos.</div>
+        <div class="item-libro"><strong>11. Misiones Cumplidas:</strong> Huella en el alma.</div>
+        <div class="item-libro"><strong>12. Umbral:</strong> El paso a la eternidad.</div>
+    </div>
+
+    <a href="#" class="btn-memoria">ENTRAR A LA MEMORIA VIVA</a>
+</div>
+
+<footer>
+    <p>EL CARTERO IN VITA © 2026</p>
+    <p><em>Lo que se guarda aquí, jamás se pierde.</em></p>
+</footer>
+
+</body>
+</html>
             margin-bottom: 15px;
             text-align: justify;
         }
